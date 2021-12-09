@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class PlayerShoot : MonoBehaviour
 {
     [SerializeField] private Transform _shootPoint;
+    [SerializeField] private Transform _crossHair;
     [SerializeField] private Arrow _bullet;
     [SerializeField] private float _coolDown;
     private Player _player;
@@ -39,7 +41,13 @@ public class PlayerShoot : MonoBehaviour
     {
         Instantiate(_bullet, _shootPoint.position, _shootPoint.transform.rotation);
         StartCoroutine(_time.ForcedAcceleration());
+        CrosshairRotate();
         _currentTime = 0;
+    }
+
+    private void CrosshairRotate()
+    {
+        _crossHair.transform.DORotate(new Vector3(0,0,90), _coolDown, RotateMode.WorldAxisAdd);
     }
 
     public void WeaponStatus(bool have)

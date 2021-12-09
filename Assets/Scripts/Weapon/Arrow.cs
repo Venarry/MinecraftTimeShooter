@@ -9,7 +9,13 @@ public class Arrow : MonoBehaviour
     [SerializeField] private ParticleSystem _explosionEffect;
     [SerializeField] private TrailRenderer _trail;
     private Player _player;
+    private ArenaScore _score;
     private float _lifeTime;
+
+    private void Start()
+    {
+        _score = FindObjectOfType<ArenaScore>();
+    }
 
     private void Update()
     {
@@ -25,12 +31,20 @@ public class Arrow : MonoBehaviour
             other.GetComponentInParent<Enemy>().GetHit(true);
             ParentInObject(other);
             SpawnParticle();
+            if (_score != null)
+            {
+                _score.GetScore(10);
+            }
         }
         if (other.gameObject.TryGetComponent(out Body body))
         {
             other.GetComponentInParent<Enemy>().GetHit(false);
             ParentInObject(other);          
             SpawnParticle();
+            if (_score != null)
+            {
+                _score.GetScore(5);
+            }
         }
         if (other.gameObject.TryGetComponent(out Ground ground))
         {
@@ -54,6 +68,7 @@ public class Arrow : MonoBehaviour
         transform.SetParent(other.gameObject.transform);
         _trail.enabled = false;
         Destroy(this);
+        gameObject.AddComponent<TempObject>();
     }
     private void SpawnParticle()
     {

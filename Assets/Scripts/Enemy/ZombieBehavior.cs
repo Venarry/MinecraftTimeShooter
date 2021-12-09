@@ -9,12 +9,14 @@ public class ZombieBehavior : MonoBehaviour
     private NavMeshAgent _agent;
     private Player _player;
     private Animator _animator;
+    private RandomiseDestination _randomiseDestination;
 
     private void Start()
     {
         _agent = GetComponent<NavMeshAgent>();
         _player = FindObjectOfType<Player>();
         _animator = GetComponent<Animator>();
+        _randomiseDestination = GetComponent<RandomiseDestination>();
     }
 
     private void Update()
@@ -28,7 +30,7 @@ public class ZombieBehavior : MonoBehaviour
         else
         {
             _agent.enabled = true;
-            _agent.SetDestination(_player.transform.position);
+            _agent.SetDestination(_randomiseDestination.targetPoint);
 
         }
     }
@@ -37,4 +39,26 @@ public class ZombieBehavior : MonoBehaviour
         yield return new WaitForSeconds(0.3f);
         _player.Lose();
     }
+    /*private IEnumerator SetTargetPoint()
+    {
+        if(Vector3.Distance(transform.position, _player.transform.position) > _agrDistance)
+        {
+            CheckPointDistance();          
+        }
+        else targetPoint = _player.transform.position;
+        
+        yield return new WaitForSecondsRealtime(0.1f);
+        StartCoroutine(SetTargetPoint());
+    }
+    private void CheckPointDistance()
+    {
+        if(Vector3.Distance(targetPoint, _player.transform.position) > _agrDistance)
+        {
+            targetPoint = SetRandomPoint();
+        }
+    }
+    private Vector3 SetRandomPoint()
+    {
+        return new Vector3(_player.transform.position.x + Random.Range(-_agrDistance, _agrDistance), _player.transform.position.y, _player.transform.position.z + Random.Range(-_agrDistance, _agrDistance));
+    }*/
 }

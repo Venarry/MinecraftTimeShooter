@@ -1652,6 +1652,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _shootPoint: {fileID: 8478226242721520026}
+  _crossHair: {fileID: 8119205556335711624}
   _bullet: {fileID: 8135478028374797038, guid: 2d2b2c4087eff924f8ee999a8d7e669c, type: 3}
   _coolDown: 0.5
 --- !u!114 &285547025135925554

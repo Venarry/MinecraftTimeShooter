@@ -43,6 +43,7 @@ public class Enemy : MonoBehaviour
     }
     private void DeleteChildrenComponents()
     {
+        gameObject.AddComponent<TempObject>();
         Head[] headObjects = GetComponentsInChildren<Head>();
         foreach (Head currentObject in headObjects)
         {

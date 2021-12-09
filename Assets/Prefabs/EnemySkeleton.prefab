@@ -563,6 +563,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2070558903008718510}
+  - component: {fileID: 1154961183948039326}
   m_Layer: 0
   m_Name: ShootPoint
   m_TagString: Untagged
@@ -584,6 +585,18 @@ Transform:
   m_Father: {fileID: 1960934077185844168}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1154961183948039326
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2070558903008718511}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed3e5fab919dcea4f98de9272fa0de1a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2070558903273521256
 GameObject:
   m_ObjectHideFlags: 0
@@ -601,6 +614,7 @@ GameObject:
   - component: {fileID: 2070558903273521264}
   - component: {fileID: 2070558903273521270}
   - component: {fileID: 2070558903273521267}
+  - component: {fileID: -906175904819187876}
   m_Layer: 0
   m_Name: EnemySkeleton
   m_TagString: Untagged
@@ -642,6 +656,7 @@ MonoBehaviour:
   - {fileID: 2070558903273521270}
   - {fileID: 2070558903273521267}
   - {fileID: 2070558903273521268}
+  - {fileID: -906175904819187876}
   _head: {fileID: 6402320278074688852}
   _brokenHead: {fileID: 1188232920940809175}
 --- !u!114 &2070558903273521258
@@ -746,7 +761,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.3
-  m_Speed: 3.5
+  m_Speed: 2.5
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -758,6 +773,20 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &-906175904819187876
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2070558903273521256}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 261658197a124c4488c7d67b2e17aadf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetPoint: {x: 0, y: 0, z: 0}
+  _agrDistance: 4
 --- !u!1 &2106420422167435564
 GameObject:
   m_ObjectHideFlags: 0

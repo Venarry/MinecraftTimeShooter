@@ -11,6 +11,8 @@ public class SkeletonBehavior : MonoBehaviour
     private NavMeshAgent _agent;
     private Player _player;
     private Animator _animator;
+    private RandomiseDestination _randomiseDestination;
+    Vector3 targetPoint;
 
     private void Start()
     {
@@ -18,20 +20,21 @@ public class SkeletonBehavior : MonoBehaviour
         _agent = GetComponent<NavMeshAgent>();
         _player = FindObjectOfType<Player>();
         _animator = GetComponent<Animator>();
+        _randomiseDestination = GetComponent<RandomiseDestination>();
+        _agent.SetDestination(_randomiseDestination.targetPoint);
     }
 
     private void Update()
-    {
+    {       
         if (!_viewChecker.IsView())
         {
-            _agent.enabled = true;
-            _agent.SetDestination(_player.transform.position);
+            _agent.SetDestination(_randomiseDestination.targetPoint);
+        }
+
+        if(Vector3.Distance(_agent.destination, transform.position) > 1f)
+        {
             _animator.SetBool("Walk", true);
         }
-        else
-        {
-            _agent.enabled = false;
-            _animator.SetBool("Walk", false);
-        }
+        else _animator.SetBool("Walk", false);
     }
 }

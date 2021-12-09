@@ -8,7 +8,7 @@ public class ViewChecker : MonoBehaviour
     private MoveController _player;
     [SerializeField] private LayerMask _mask;
 
-    private void Start()
+    private void Awake()
     {
         _player = FindObjectOfType<MoveController>();
     }
