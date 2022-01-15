@@ -11,11 +11,13 @@ public class ArenaScore : MonoBehaviour
     private int _bestScore;
     private PlayerDataSave _dataSave;
     private LanguageSwitcher _language;
+    private YandexSDK _sdk;
 
     private void Start()
     {
         _dataSave = FindObjectOfType<PlayerDataSave>();
         _language = FindObjectOfType<LanguageSwitcher>();
+        _sdk = YandexSDK.Instance;
         _scoreLabel.text = _language.ScoreLabel + 0.ToString();
         _bestScore = PlayerPrefs.GetInt("ArenaBestScore");
     }
@@ -31,7 +33,8 @@ public class ArenaScore : MonoBehaviour
         if (_score > _bestScore)
         {
             PlayerPrefs.SetInt("ArenaBestScore", _score);
-            //_dataSave.DataSave();
+            _dataSave.DataSave();
+            _sdk.setLeaderScore(_score);
         }
     }
 }

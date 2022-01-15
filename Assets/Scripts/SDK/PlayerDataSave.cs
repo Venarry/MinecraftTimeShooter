@@ -21,7 +21,8 @@ public class PlayerDataSave : MonoBehaviour
     private void Save()
     {
         _arenaScore = PlayerPrefs.GetInt("ArenaBestScore");
-        UserGameData UD = new UserGameData(_arenaScore);
+        int _currentLevel = PlayerPrefs.GetInt("CurrentLevel");
+        UserGameData UD = new UserGameData(_arenaScore, _currentLevel);
         _sdk.SettingData(JsonUtility.ToJson(UD));
     }
     private void OnDisable()

@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4742749896608008894}
   - component: {fileID: 4742749896608008893}
-  - component: {fileID: -524852670323396345}
   - component: {fileID: 8833599761286339306}
   m_Layer: 0
   m_Name: SDK
@@ -45,19 +44,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1cd0e344c995d51418353640abb4210b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &-524852670323396345
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4742749896608008892}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a6d738eee4a3f4a4ab95363ef6b59c0e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  UserLanguage: 
 --- !u!114 &8833599761286339306
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -74,4 +60,5 @@ MonoBehaviour:
   MenuArenaLabel: 
   WinLabel: 
   LoseLabel: 
+  ScoreLabel: 
   BestScoreLabel: 

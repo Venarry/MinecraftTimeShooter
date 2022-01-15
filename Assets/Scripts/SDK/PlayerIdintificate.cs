@@ -42,14 +42,14 @@ public class PlayerIdintificate : MonoBehaviour
 
     private void SettingData()
     {
-        if (_sdk.GetUserGameData.ArenaScore > 0)
-        {
-            //Score
-            _arenaBestScore = _sdk.GetUserGameData.ArenaScore;           
-            LableRefresh();
+        _arenaBestScore = _sdk.GetUserGameData.ArenaScore;
+        int _currentLevel = _sdk.GetUserGameData.CurrentLevel;
+        Debug.Log(_currentLevel);
+        Debug.Log(_sdk.GetUserGameData.CurrentLevel);
+        LableRefresh();
 
-            PlayerPrefs.SetInt("ArenaBestScore", _arenaBestScore);
-        }
+        PlayerPrefs.SetInt("ArenaBestScore", _arenaBestScore);
+        PlayerPrefs.SetInt("CurrentLevel", _currentLevel);
     }
     private void LableRefresh()
     {

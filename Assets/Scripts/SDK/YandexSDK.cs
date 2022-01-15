@@ -26,7 +26,7 @@ public class YandexSDK : MonoBehaviour
        
     }
     
-    UserGameData UGD;
+    public UserGameData UGD;
     private UserData UD;
 
     public UserGameData GetUserGameData => UGD;
@@ -117,6 +117,7 @@ public class YandexSDK : MonoBehaviour
         UserDataSaving UDS = new UserDataSaving();
         UDS = JsonUtility.FromJson<UserDataSaving>(data);
         UGD = JsonUtility.FromJson<UserGameData>(UDS.data);
+        //UGD = JsonUtility.FromJson<UserGameData>(data);
         DataGet?.Invoke();
     }
     
@@ -124,8 +125,6 @@ public class YandexSDK : MonoBehaviour
     {
         RewardGet?.Invoke();
     }
-
-
 
 }
 
@@ -140,11 +139,13 @@ public class UserData
 [Serializable]
 public class UserGameData
 {
-    public UserGameData(int _arenaScore)
+    public int ArenaScore = 0;
+    public int CurrentLevel = 0;
+    public UserGameData(int _arenaScore, int _currentLevel)
     {
         ArenaScore = _arenaScore;
+        CurrentLevel = _currentLevel;
     }
-    public int ArenaScore;
 }
 [Serializable]
 public class UserDataSaving

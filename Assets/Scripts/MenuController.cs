@@ -7,11 +7,13 @@ public class MenuController : MonoBehaviour
 {
     private YandexSDK _sdk;
     private Player _player;
+    private PlayerDataSave _dataSave;
 
     private void Start()
     {
         _sdk = YandexSDK.Instance;
         _player = FindObjectOfType<Player>();
+        _dataSave = FindObjectOfType<PlayerDataSave>();
     }
 
     private void Update()
@@ -20,10 +22,7 @@ public class MenuController : MonoBehaviour
         {
             RestartLevel();
         }
-        if (Input.GetKeyDown(KeyCode.T) && !_player.GameOver)
-        {
-            NextLevel();
-        }
+        
         if (Input.GetKeyDown(KeyCode.Escape) && SceneManager.GetActiveScene().name != "Menu")
         {
             MainMenu();
@@ -47,13 +46,16 @@ public class MenuController : MonoBehaviour
         PlayerPrefs.SetInt("CurrentLevel", i);
         SceneManager.LoadScene(i);
 
+        _dataSave.DataSave();
         _sdk.ShowCommonAdvertisment();
     }
     public void StartGameLevels()
     {
         if (PlayerPrefs.HasKey("CurrentLevel"))
         {
-            SceneManager.LoadScene(PlayerPrefs.GetInt("CurrentLevel"));
+            if(PlayerPrefs.GetInt("CurrentLevel") != 0)
+                SceneManager.LoadScene(PlayerPrefs.GetInt("CurrentLevel"));
+            else SceneManager.LoadScene(1);
         }
         else SceneManager.LoadScene(1);
     }

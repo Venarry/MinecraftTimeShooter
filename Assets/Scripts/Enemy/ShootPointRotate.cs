@@ -12,6 +12,6 @@ public class ShootPointRotate : MonoBehaviour
     }
     private void Update()
     {
-        transform.LookAt(_camera.transform.position);
+        transform.LookAt(new Vector3(_camera.transform.position.x, _camera.transform.position.y-0.4f, _camera.transform.position.z));
     }
 }

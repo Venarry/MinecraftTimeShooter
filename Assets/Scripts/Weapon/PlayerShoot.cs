@@ -8,6 +8,8 @@ public class PlayerShoot : MonoBehaviour
     [SerializeField] private Transform _shootPoint;
     [SerializeField] private Transform _crossHair;
     [SerializeField] private Arrow _bullet;
+    [SerializeField] private AudioSource _audioSource;
+    [SerializeField] private AudioClip _audioClip;
     [SerializeField] private float _coolDown;
     private Player _player;
     private TimeController _time;
@@ -33,6 +35,7 @@ public class PlayerShoot : MonoBehaviour
             if(_weaponInHand) //(GetComponentInChildren<Weapon>() != null)
             {
                 Shoot();
+                ShootSound();
             }
         }
     }
@@ -43,6 +46,11 @@ public class PlayerShoot : MonoBehaviour
         StartCoroutine(_time.ForcedAcceleration());
         CrosshairRotate();
         _currentTime = 0;
+    }
+    private void ShootSound()
+    {
+        _audioSource.pitch = Random.Range(0.9f,1.2f);
+        _audioSource.PlayOneShot(_audioClip, _audioSource.volume);
     }
 
     private void CrosshairRotate()

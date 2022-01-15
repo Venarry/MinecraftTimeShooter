@@ -7,9 +7,13 @@ public class LanguageSwitcher : MonoBehaviour
 {
     public string MenuLevelsLabel;
     public string MenuArenaLabel;
+    public string MenuSensitivityLabel;
+    public string MenuMusicVolumeLabel;
+    public string MenuEffectVolumeLabel;
 
     public string WinLabel;
     public string LoseLabel;
+    public string FAQ;
 
     public string ScoreLabel;
     public string BestScoreLabel;
@@ -39,8 +43,12 @@ public class LanguageSwitcher : MonoBehaviour
     {
         MenuLevelsLabel = "Уровни";
         MenuArenaLabel = "Арена";
+        MenuSensitivityLabel = "Чувствительность";
+        MenuMusicVolumeLabel = "Громкость музыки";
+        MenuEffectVolumeLabel = "Громкость звуков";
         WinLabel = "Победа";
         LoseLabel = "Поражение";
+        FAQ = "Esc - меню  R-перезапустить";
         ScoreLabel = "Очки: ";
         BestScoreLabel = "Лучший результат: ";
 
@@ -54,8 +62,12 @@ public class LanguageSwitcher : MonoBehaviour
     {
         MenuLevelsLabel = "Levels";
         MenuArenaLabel = "Arena";
+        MenuSensitivityLabel = "Sensitivity";
+        MenuMusicVolumeLabel = "Music volume";
+        MenuEffectVolumeLabel = "Effect volume";
         WinLabel = "Victory";
         LoseLabel = "Defeat";
+        FAQ = "Esc - menu  R-restart";
         ScoreLabel = "Score: ";
         BestScoreLabel = "Best Score: ";
 
